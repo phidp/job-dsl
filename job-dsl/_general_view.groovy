@@ -1,19 +1,28 @@
+// import groovy.io.FileType
+// def workDir = SEED_JOB.getWorkspace()
+// println(workDir)
+
+// def dir = new File('/Users/phidp/.jenkins/workspace/test_jobDsl/job-dsl')
+// dir.eachFileRecurse (FileType.DIRECTORIES) { fol ->
+//     println("Creating folder: ${fol.name}")
+    
+//     folder("${fol.name}") {
+// 		displayName(fol.name)
+// 		description(fol.name)
+// 	}
+// }
+
 import groovy.io.FileType
-def workDir = SEED_JOB.getWorkspace()
-println(workDir)
 
 def dir = new File('/Users/phidp/.jenkins/workspace/test_jobDsl/job-dsl')
+def rootPath = dir.path
+
 dir.eachFileRecurse (FileType.DIRECTORIES) { fol ->
-    // def relativePath = folder.path - "${dir.path}/"
-    // def folderPath = relativePath.replaceAll("/", "/job/").replaceAll(' ', '-')
+    def relativePath = fol.path.replace(rootPath, '').replaceAll('/', '/job/')
+    println("Creating folder: ${relativePath}")
     
-	println(dir.name)
-	println(fol.name)
-	println(fol.path)
-    println("Creating folder: ${fol.name}")
-    
-    folder("${fol.name}") {
-		displayName(fol.name)
-		description(fol.name)
-	}
+    folder("${relativePath}") {
+        displayName(fol.name)
+        description(fol.name)
+    }
 }
