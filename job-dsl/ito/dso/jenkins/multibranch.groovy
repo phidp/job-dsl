@@ -40,17 +40,17 @@ repositories.each { repo ->
                             }
                         }
                     }
-                    buildStrategies {
-                        skipInitialBuildOnFirstBranchIndexing()
-                        buildChangeRequests {
-                            ignoreTargetOnlyChanges(false)
-                            ignoreUntrustedChanges(false)
-                        }
-                        buildTags {
-                            atLeastDays("")
-                            atMostDays("7")
-                        }
-                    } 
+                    // buildStrategies {
+                    //     skipInitialBuildOnFirstBranchIndexing()
+                    //     buildChangeRequests {
+                    //         ignoreTargetOnlyChanges(false)
+                    //         ignoreUntrustedChanges(false)
+                    //     }
+                    //     buildTags {
+                    //         atLeastDays("")
+                    //         atMostDays("7")
+                    //     }
+                    // } 
                 }
             }
         }
