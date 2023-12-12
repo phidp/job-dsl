@@ -18,7 +18,7 @@ def dir = new File('/Users/phidp/.jenkins/workspace/test_jobDsl/job-dsl')
 def rootPath = dir.path
 
 dir.eachFileRecurse (FileType.DIRECTORIES) { fol ->
-    def relativePath = fol.path.replace(rootPath, '').replaceAll('/', '/job/')
+    def relativePath = fol.path.replace(rootPath + '/', '')
     println("Creating folder: ${relativePath}")
     
     folder("${relativePath}") {
