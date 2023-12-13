@@ -27,7 +27,7 @@ def formatInput(String input) {
 
     // Capitalize each word only if its first letter is not already capitalized
     List<String> formattedWords = words.collect { 
-        it[0].isUpperCase() ? it : it.capitalize() 
+        Character.isUpperCase(it[0]) ? it : it.capitalize() 
     }
 
     // Join words back together
