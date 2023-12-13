@@ -13,8 +13,8 @@ dir.eachFileRecurse (FileType.DIRECTORIES) { fol ->
     println("Creating folder: ${formatedPath}")
 
     folder("${formatedPath}") {
-        displayName(fol.name)
-        description(fol.name)
+        displayName(formatedName)
+        description(formatedName)
     }
 }
 
