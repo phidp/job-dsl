@@ -18,6 +18,22 @@ dir.eachFileRecurse (FileType.DIRECTORIES) { fol ->
     }
 }
 
+// def formatInput(String input) {
+//     // Replace underscores with spaces
+//     String replaced = input.replace('_', ' ')
+
+//     // Split the string into words
+//     List<String> words = replaced.split(' ')
+
+//     // Capitalize each word
+//     List<String> capitalizedWords = words.collect { it.capitalize() }
+
+//     // Join words back together
+//     String formattedInput = capitalizedWords.join(' ')
+
+//     return formattedInput
+// }
+
 def formatInput(String input) {
     // Replace underscores with spaces
     String replaced = input.replace('_', ' ')
@@ -27,7 +43,7 @@ def formatInput(String input) {
 
     // Capitalize each word only if its first letter is not already capitalized
     List<String> formattedWords = words.collect { 
-        Character.isUpperCase(it[0]) ? it : it.capitalize() 
+        it == it.toUpperCase() ? it : it.capitalize() 
     }
 
     // Join words back together
