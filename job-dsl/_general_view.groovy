@@ -25,11 +25,13 @@ def formatInput(String input) {
     // Split the string into words
     List<String> words = replaced.split(' ')
 
-    // Capitalize each word
-    List<String> capitalizedWords = words.collect { it.capitalize() }
+    // Capitalize each word only if its first letter is not already capitalized
+    List<String> formattedWords = words.collect { 
+        it[0].isUpperCase() ? it : it.capitalize() 
+    }
 
     // Join words back together
-    String formattedInput = capitalizedWords.join(' ')
+    String formattedInput = formattedWords.join(' ')
 
     return formattedInput
 }
