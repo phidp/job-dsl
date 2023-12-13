@@ -3,7 +3,6 @@ import groovy.io.FileType
 def workDir = SEED_JOB.getWorkspace()
 
 def dir = new File("${workDir}/job-dsl")
-def rootPath = dir.path
 
 dir.eachFileRecurse (FileType.DIRECTORIES) { fol ->
     def path = formatInputPath(fol.path)
@@ -16,6 +15,7 @@ dir.eachFileRecurse (FileType.DIRECTORIES) { fol ->
 }
 
 def formatInputPath( String input) {
+    def rootPath = dir.path
     String relativePath = input.replace(rootPath + '/', '')
     String formattedInput = relativePath.toLowerCase().replaceAll(' ', '-').replaceAll('_', '-')
     return formattedInput
