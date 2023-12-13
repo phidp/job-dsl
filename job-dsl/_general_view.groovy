@@ -34,7 +34,7 @@ dir.eachFileRecurse (FileType.DIRECTORIES) { fol ->
 //     return formattedInput
 // }
 
-void formatInput(String input) {
+def formatInput(String input) {
     println("Folder name is: ${input}")
     // Replace underscores with spaces
     String replaced = input.replace('_', ' ')
@@ -47,6 +47,7 @@ void formatInput(String input) {
         println(it)
         it == it.toUpperCase() ? it : it.capitalize()
     }
+    println(formattedWords)
 
     // Join words back together
     String formattedInput = formattedWords.join(' ')
