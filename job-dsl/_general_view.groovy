@@ -5,7 +5,7 @@ def workDir = SEED_JOB.getWorkspace()
 def dir = new File("${workDir}/job-dsl")
 
 dir.eachFileRecurse (FileType.DIRECTORIES) { fol ->
-    def path = formatInputPath(fol.path)
+    def path = formatInputPath(fol.path, dir)
     def name = formatInputName(fol.name)
 
     folder(path) {
@@ -14,7 +14,7 @@ dir.eachFileRecurse (FileType.DIRECTORIES) { fol ->
     }
 }
 
-def formatInputPath( String input) {
+def formatInputPath(String input, String dir) {
     def rootPath = dir.path
     String relativePath = input.replace(rootPath + '/', '')
     String formattedInput = relativePath.toLowerCase().replaceAll(' ', '-').replaceAll('_', '-')
