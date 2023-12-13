@@ -17,7 +17,7 @@ import groovy.io.FileType
 def workDir = SEED_JOB.getWorkspace()
 println("work dir is: ${workDir}")
 
-def dir = new File('/Users/phidp/.jenkins/workspace/test_jobDsl/job-dsl')
+def dir = new File("${workDir}/job-dsl")
 def rootPath = dir.path
 
 dir.eachFileRecurse (FileType.DIRECTORIES) { fol ->
