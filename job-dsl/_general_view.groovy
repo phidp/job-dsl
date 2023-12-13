@@ -47,7 +47,6 @@ void formatInput(String input) {
         println(it)
         it == it.toUpperCase() ? it : it.capitalize()
     }
-    println(formattedWords)
 
     // Join words back together
     String formattedInput = formattedWords.join(' ')
